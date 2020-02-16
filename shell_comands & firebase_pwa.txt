@@ -1,0 +1,16 @@
+dev environmet:
+
+npm start
+
+
+production environment:
+
+npm run build
+serve -s build
+
+
+----------------------------------------
+
+Hosting with firebase -->
+
+https://medium.com/@saigeleslie/how-to-create-a-progressive-web-app-with-react-in-5-mins-or-less-3aae3fe98902
