@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +16,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Card from './Cards';
+import DisplaysBuilder from '../containers/DisplaysBuilder';
+import YoutubeSearchedForIcon from '@material-ui/icons/YoutubeSearchedFor';
 
 const drawerWidth = 240;
 
@@ -48,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(3)
   },
 }));
 
@@ -56,7 +57,7 @@ function NavBar(props) {
   const { container } = props;
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
 
   const handleDrawerToggle = () => {
@@ -104,6 +105,9 @@ function NavBar(props) {
           <Typography variant="h6" noWrap>
             Specific-Domain Application
           </Typography>
+          <IconButton>
+                <YoutubeSearchedForIcon/>
+            </IconButton>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -139,7 +143,7 @@ function NavBar(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Card />
+        <DisplaysBuilder />
       </main>
     </div>
   );
@@ -154,38 +158,3 @@ NavBar.propTypes = {
 };
 
 export default NavBar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import AppBar from '@material-ui/core/AppBar'
-// import Toolbar from '@material-ui/core/Toolbar'
-// import Typography from '@material-ui/core/Typography'
-// const NavBar = () => {
-//     return(
-//         <div>
-//         <AppBar position="static">
-//             <Toolbar>
-//                 <Typography color="inherit">
-//                 Domain Specific Progressive Web App
-//                 </Typography>
-//             </Toolbar>
-//         </AppBar>
-//         </div>
-//     )
-// }
-// export default NavBar;
