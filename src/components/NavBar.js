@@ -102,7 +102,7 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+            Specific-Domain Application
           </Typography>
         </Toolbar>
       </AppBar>
