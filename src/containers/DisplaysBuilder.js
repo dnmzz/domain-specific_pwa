@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Display from '../components/Display/Display';
-import { display } from '../display_mockData';
-import NavBar from '../components/NavBar';
+import { display_mock } from '../assets/mockData/displays';
 import axios from "axios";
 
 const DisplaysBuilder = () => {
 
-    const [displayState, setDisplayState] = useState(display);
+    const [displayState, setDisplayState] = useState(display_mock);
 
     // useEffect(() => {
     //     axios
@@ -17,14 +16,11 @@ const DisplaysBuilder = () => {
 
     var displays = displayState.map(display => {
         return (
-            <Display name={display.name} />
+            <Display key={display.id} name={display.name} />
         );
     });
 
-    return <div>
-        {/* <NavBar /> */}
-        {displays}
-    </div>
+    return <div>{ displays} </div>
 
     // return (<Display name={displayState[0].name} />)
     // displayState.map((display, index) => {

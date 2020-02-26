@@ -1,4 +1,4 @@
-export const display = [
+export const display_mock = [
     {
         id: 1,
         name: 'Via Sacra Maximinos',
