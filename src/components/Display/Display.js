@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '80.25%', // 16:9
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -63,7 +63,7 @@ const Display = (props) => {
             />
             <CardMedia
                 className={classes.media}
-                image="/static/images/cards/paella.jpg"
+                image={props.mainImageUrl}
                 title={props.imageTitle}
             />
             <CardContent>
