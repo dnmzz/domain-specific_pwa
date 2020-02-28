@@ -16,7 +16,7 @@ const DisplaysBuilder = () => {
 
     var displays = displayState.map(display => {
         return (
-            <Display key={display.id} name={display.name} />
+            <Display key={display.id} name={display.name} description={display.description} mainImageUrl={display.mainImageUrl}/>
         );
     });
 
