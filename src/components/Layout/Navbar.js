@@ -102,7 +102,7 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Specific-Domain Application
+            geo context app
           </Typography>
           <IconButton>
                 <YoutubeSearchedForIcon/>
