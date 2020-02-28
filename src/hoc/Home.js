@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Aux from '../auxiliar/Aux';
+import Aux from '../auxiliar/auxiliar';
 import NavBar from '../components/Layout/Navbar';
 
 const Home = (props) => {
