@@ -5,8 +5,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardText from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -21,15 +23,28 @@ const useStyles = makeStyles({
 const Display = (props) => {
     const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
+    let history = useHistory();
+
+    const test = (id) => {
+        // const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
+
+        history.push({
+            pathname: `/display/${id}`,
+            state: {
+                to: 'modal'
+                // meta: {
+                //     from: { top, right, bottom, left, width, height },
+                // },
+            },
+        });
+    };
 
     // const dealWithExpandedClick = (props) => {
     //     setExpanded(!expanded);
     // };
 
     return (
-
-
-        <Card className={classes.root}>
+        <Card onClick={() => test(props.id)} className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
@@ -48,11 +63,28 @@ const Display = (props) => {
             <CardActions>
                 <Button size="small" color="primary">
                     Share
-        </Button>
+                </Button>
                 <Button size="small" color="primary">
                     Learn More
-        </Button>
+                </Button>
             </CardActions>
+            {expanded &&
+                <div className="actions">
+                    <CardText className="text">
+                        {props.description}
+                    </CardText>
+                    {/* {props.posters.map((poster)=>(
+                    <div className="">
+                        <div className="">
+                            {poster.name}
+                        </div>
+                        <div className="">
+                            {posters.description}
+                        </div>
+                    </div>
+                ))} */}
+                </div>
+            }
         </Card>
 
         // <Card className={classes.root}>
