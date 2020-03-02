@@ -16,16 +16,16 @@ const DisplaysBuilder = () => {
 
     var displays = displayState.map(display => {
         return (
-            <Display key={display.id} name={display.name} description={display.description} mainImageUrl={display.mainImageUrl}/>
+            <Display 
+            key={display.id} 
+            id={display.id} 
+            name={display.name} 
+            description={display.description} 
+            mainImageUrl={display.mainImageUrl}/>
         );
     });
 
-    return <div>{ displays} </div>
-
-    // return (<Display name={displayState[0].name} />)
-    // displayState.map((display, index) => {
-    //     return <Display name={display[index].id} />
-    // })
+    return <div>{displays}</div>
 }
 
 export default DisplaysBuilder;
