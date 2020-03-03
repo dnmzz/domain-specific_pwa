@@ -1,9 +1,9 @@
 export const display_mock = [
   {
     id: 1,
-    name: 'Estação 1',
+    name: 'Jesus cai por terra',
     domain: 'Via Sacra - Braga',
-    location: 'Braga',
+    location: 'Rua de S. Paulo',
     mainImageUrl: 'https://www.catolicismoromano.com.br/wp-content/uploads/2011/04/Jesus5.jpg',
     description: 'A brief description about Display 1',
     context: "via-sacra",
@@ -17,9 +17,9 @@ export const display_mock = [
   },
   {
     id: 2,
-    name: 'Estação 2',
+    name: 'Segunda queda',
     domain: 'Via Sacra - Braga',
-    location: 'Braga',
+    location: 'Largo do Paço',
     mainImageUrl: 'https://www.focus.jor.br/wp-content/uploads/2020/01/silueta-de-catolico-crucifixos-e-amanhecer_1150-6793-550x366.jpg',
     mainImageTitle: 'Image 2',
     description: 'A brief description about Display 2',
