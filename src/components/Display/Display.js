@@ -129,18 +129,16 @@ const Display = (props) => {
                     <div className="display-cover-content">
                         <CardContent>
                             <div className="display-name">
-                            <Typography variant="h5" component="h2">
-                                {props.name}
-                            </Typography>
+                                <Typography variant="h5" component="h2">
+                                    {props.name}
+                                </Typography>
                             </div>
 
-                            <div className="display-domain">
-                            <Typography variant="subtitle1" color="textSecondary" component="p">
-                                {props.domain}
-                            </Typography>
+                            <div className="display-location">
+                                <Typography variant="subtitle1" color="textSecondary" component="p">
+                                    {props.location}
+                                </Typography>
                             </div>
-                            
-                            
                         </CardContent>
                     </div>
                 </div>

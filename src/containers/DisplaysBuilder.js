@@ -21,6 +21,7 @@ const DisplaysBuilder = () => {
             id={display.id} 
             name={display.name}
             domain={display.domain}
+            location= {display.location}
             description={display.description} 
             mainImageUrl={display.mainImageUrl}/>
         );
