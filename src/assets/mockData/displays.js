@@ -1,7 +1,7 @@
 export const display_mock = [
   {
     id: 1,
-    name: 'Estação 1',
+    name: 'Pesto Bruchetta',
     domain: 'Via Sacra - Braga',
     location: 'Braga',
     mainImageUrl: 'https://www.catolicismoromano.com.br/wp-content/uploads/2011/04/Jesus5.jpg',

@@ -19,7 +19,8 @@ const DisplaysBuilder = () => {
             <Display 
             key={display.id} 
             id={display.id} 
-            name={display.name} 
+            name={display.name}
+            domain={display.domain}
             description={display.description} 
             mainImageUrl={display.mainImageUrl}/>
         );

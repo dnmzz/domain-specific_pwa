@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import 'typeface-roboto';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardText from '@material-ui/core/Card';
+import CardTitle from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import TimerIcon from '@material-ui/icons/Timer';
+import ShareIcon from '@material-ui/icons/Share';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useHistory } from "react-router-dom";
+import './display.css';
 
 const useStyles = makeStyles({
     root: {
@@ -18,11 +26,25 @@ const useStyles = makeStyles({
     media: {
         height: 140,
     },
+    actions: {
+        icon: {
+            width: 30,
+            height: 30,
+            color: 'white',
+        },
+        button: {
+            width: 60,
+            height: 60,
+            color: 'white'
+        }
+    }
 });
 
 const Display = (props) => {
     const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
+    const [showActions, setShowActions] = useState(false);
+    const [goBack, setGoBack] = useState(null);
     let history = useHistory();
 
     const test = (id) => {
@@ -49,16 +71,79 @@ const Display = (props) => {
                 <CardMedia
                     className={classes.media}
                     image={props.mainImageUrl}
-                    title="Contemplative Reptile"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.name}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {props.description}
-                    </Typography>
-                </CardContent>
+                    title="Contemplative Reptile">
+                    <div className="header">
+                        <div className="actions left">
+                            {goBack &&
+                                // <IconButton
+                                //     iconstyle={classes.actions.icon}
+                                //     style={classes.actions.button}
+                                //     // onClick={}
+                                //     id="back-button"
+                                // >
+                                <ArrowBackIcon />
+                                // </IconButton>
+                            }
+                        </div>
+                        {showActions &&
+                            <div className="actions right">
+                                {/* <IconButton
+                                    iconStyle={classes.actions.icon}
+                                    style={classes.actions.button}
+                                > */}
+                                <TimerIcon />
+                                {/* </IconButton> */}
+                                {/* <IconButton
+                                    iconStyle={classes.actions.icon}
+                                    style={classes.actions.button}
+                                > */}
+                                <ShareIcon />
+                                {/* </IconButton> */}
+                                {/* <IconButton
+                                    iconStyle={classes.actions.icon}
+                                    style={classes.actions.button}
+                                > */}
+                                <MoreVertIcon />
+                                {/* </IconButton> */}
+                            </div>
+                        }
+                    </div>
+                </CardMedia>
+
+                {/* <div className="title">
+                    <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
+                    <div className="display-cover-content">
+                        <CardContent>
+                            <span className="display-name">
+                                {props.name}
+                            </span>
+                            <span className="sub">
+                                {props.description}
+                            </span>
+                        </CardContent>
+                    </div>
+                </div> */}
+
+                <div className="title">
+                    <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
+                    <div className="display-cover-content">
+                        <CardContent>
+                            <div className="display-name">
+                            <Typography variant="h5" component="h2">
+                                {props.name}
+                            </Typography>
+                            </div>
+
+                            <div className="display-domain">
+                            <Typography variant="subtitle1" color="textSecondary" component="p">
+                                {props.domain}
+                            </Typography>
+                            </div>
+                            
+                            
+                        </CardContent>
+                    </div>
+                </div>
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
@@ -86,55 +171,6 @@ const Display = (props) => {
                 </div>
             }
         </Card>
-
-        // <Card className={classes.root}>
-        //     <CardHeader
-        //         avatar = {
-        //             <Avatar aria-label="recipe" className={classes.avatar}>V</Avatar>
-        //         }
-        //         action = {
-        //             <IconButton aria-label="settings">
-        //                 <MoreVertIcon />
-        //             </IconButton>
-        //         }
-        //         title = {props.name}
-        //         subheader = {props.location}
-        //     />
-        //     <CardMedia
-        //         className={classes.media}
-        //         image={props.mainImageUrl}
-        //         title={props.imageTitle}
-        //     />
-        //     <CardContent>
-        //         <Typography variant="body2" color="textSecondary" component="p">
-        //            {props.description} 
-        //         </Typography>
-        //     </CardContent>
-
-        //     <CardActions disableSpacing>
-        //         <IconButton aria-label="add to favorites">
-        //             <FavoriteIcon />
-        //         </IconButton>
-        //         <IconButton aria-label="share">
-        //             <ShareIcon />
-        //         </IconButton>
-        //         <IconButton
-        //             className={clsx(classes.expand, {
-        //                 [classes.expandOpen]: expanded,
-        //             })}
-        //             onClick={dealWithExpandedClick}
-        //             aria-expanded={expanded}
-        //             aria-label="show more"
-        //         >
-        //             <ExpandMoreIcon />
-        //         </IconButton>
-        //     </CardActions>
-        //     <Collapse in={expanded} timeout="auto" unmountOnExit>
-        //         <CardContent>
-        //             <Typography paragraph>Method:</Typography>
-        //         </CardContent>
-        //     </Collapse>
-        // </Card>
     )
 }
 
