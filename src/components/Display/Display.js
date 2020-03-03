@@ -7,7 +7,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardText from '@material-ui/core/Card';
-import CardTitle from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -61,10 +60,6 @@ const Display = (props) => {
         });
     };
 
-    // const dealWithExpandedClick = (props) => {
-    //     setExpanded(!expanded);
-    // };
-
     return (
         <Card onClick={() => test(props.id)} className={classes.root}>
             <CardActionArea>
@@ -109,21 +104,6 @@ const Display = (props) => {
                         }
                     </div>
                 </CardMedia>
-
-                {/* <div className="title">
-                    <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
-                    <div className="display-cover-content">
-                        <CardContent>
-                            <span className="display-name">
-                                {props.name}
-                            </span>
-                            <span className="sub">
-                                {props.description}
-                            </span>
-                        </CardContent>
-                    </div>
-                </div> */}
-
                 <div className="title">
                     <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
                     <div className="display-cover-content">
