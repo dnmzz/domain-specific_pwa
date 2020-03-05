@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Switch>
           <Home>
-            <Route path="/" component={DisplaysBuilder} exact />
+            <Route path="/" component={Home} exact />
           </Home>
         </Switch>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import Card from '@material-ui/core/Card';
@@ -15,12 +15,14 @@ import TimerIcon from '@material-ui/icons/Timer';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useHistory } from "react-router-dom";
+import useBoundingclientrect from "@rooks/use-boundingclientrect"
 import './display.css';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        maxWidth: 500,
         marginBottom: 15,
+        borderRadius: 0
     },
     media: {
         height: 140,
@@ -41,114 +43,149 @@ const useStyles = makeStyles({
 
 const Display = (props) => {
     const classes = useStyles();
-    const [expanded, setExpanded] = useState(false);
-    const [showActions, setShowActions] = useState(false);
-    const [goBack, setGoBack] = useState(null);
+    let expanded = props.expanded;
+    let showActions = props.showActions;
+    let goBack = props.goBack;
     let history = useHistory();
+    const refContainer = useRef(null);
+    const getBoundingClientRect = useBoundingclientrect(refContainer);
+    const [expandedValue, setExpanded] = useState(false);
 
-    const test = (id) => {
-        // const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
+    const goToDisplay = (propData) => {
+        const { top, right, bottom, left, width, height } = getBoundingClientRect;
 
         history.push({
-            pathname: `/display/${id}`,
+            pathname: `/display/${propData.id}`,
             state: {
-                to: 'modal'
-                // meta: {
-                //     from: { top, right, bottom, left, width, height },
-                // },
+                to: 'modal',
+                meta: {
+                    from: { top, right, bottom, left, width, height }
+                },
+                data: {
+                    key: propData.key,
+                    id: propData.id,
+                    name: propData.name,
+                    domain: propData.domain,
+                    location: propData.location,
+                    description: propData.description,
+                    mainImageUrl: propData.mainImageUrl
+                }
             },
         });
+        setExpanded(true);
     };
 
     return (
-        <Card onClick={() => test(props.id)} className={classes.root}>
-            <CardActionArea>
-                <CardMedia
-                    className={classes.media}
-                    image={props.mainImageUrl}
-                    title="Contemplative Reptile">
-                    <div className="header">
-                        <div className="actions left">
-                            {goBack &&
-                                // <IconButton
-                                //     iconstyle={classes.actions.icon}
-                                //     style={classes.actions.button}
-                                //     // onClick={}
-                                //     id="back-button"
-                                // >
-                                <ArrowBackIcon />
-                                // </IconButton>
+        <div ref={refContainer}>
+            <Card onClick={() => goToDisplay(props)} className={classes.root}>
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image={props.mainImageUrl}
+                        title="Contemplative Reptile">
+                        <div className="header">
+                            <div className="actions left">
+                                {goBack &&
+                                    // <IconButton
+                                    //     iconstyle={classes.actions.icon}
+                                    //     style={classes.actions.button}
+                                    //     // onClick={}
+                                    //     id="back-button"
+                                    // >
+                                    <ArrowBackIcon onClick={goBack}/>
+                                    // </IconButton>
+                                }
+                            </div>
+                            {showActions &&
+                                <div className="actions right">
+                                    {/* <IconButton
+                                    iconStyle={classes.actions.icon}
+                                    style={classes.actions.button}
+                                > */}
+                                    <TimerIcon />
+                                    {/* </IconButton> */}
+                                    {/* <IconButton
+                                    iconStyle={classes.actions.icon}
+                                    style={classes.actions.button}
+                                > */}
+                                    <ShareIcon />
+                                    {/* </IconButton> */}
+                                    {/* <IconButton
+                                    iconStyle={classes.actions.icon}
+                                    style={classes.actions.button}
+                                > */}
+                                    <MoreVertIcon />
+                                    {/* </IconButton> */}
+                                </div>
                             }
                         </div>
-                        {showActions &&
-                            <div className="actions right">
-                                {/* <IconButton
-                                    iconStyle={classes.actions.icon}
-                                    style={classes.actions.button}
-                                > */}
-                                <TimerIcon />
-                                {/* </IconButton> */}
-                                {/* <IconButton
-                                    iconStyle={classes.actions.icon}
-                                    style={classes.actions.button}
-                                > */}
-                                <ShareIcon />
-                                {/* </IconButton> */}
-                                {/* <IconButton
-                                    iconStyle={classes.actions.icon}
-                                    style={classes.actions.button}
-                                > */}
-                                <MoreVertIcon />
-                                {/* </IconButton> */}
-                            </div>
-                        }
-                    </div>
-                </CardMedia>
-                <div className="title">
-                    <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
-                    <div className="display-cover-content">
-                        <CardContent>
-                            <div className="display-name">
-                                <Typography variant="h5" component="h2">
-                                    {props.name}
-                                </Typography>
-                            </div>
+                    </CardMedia>
+                    <div className="title">
+                        <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
+                        <div className="display-cover-content">
+                            <CardContent>
+                                <div className="display-name">
+                                    <Typography variant="h5" component="h2">
+                                        {props.name}
+                                    </Typography>
+                                </div>
 
-                            <div className="display-location">
-                                <Typography variant="subtitle1" color="textSecondary" component="p">
-                                    {props.location}
-                                </Typography>
-                            </div>
-                        </CardContent>
-                    </div>
-                </div>
-            </CardActionArea>
-            <CardActions>
-                <Button size="small" color="primary">
-                    Share
-                </Button>
-                <Button size="small" color="primary">
-                    Learn More
-                </Button>
-            </CardActions>
-            {expanded &&
-                <div className="actions">
-                    <CardText className="text">
-                        {props.description}
-                    </CardText>
-                    {/* {props.posters.map((poster)=>(
-                    <div className="">
-                        <div className="">
-                            {poster.name}
+                                <div className="display-location">
+                                    <Typography variant="subtitle1" color="textSecondary" component="p">
+                                        {props.location}
+                                    </Typography>
+                                </div>
+                                <div className="display-description">
+                                    <Typography variant="body1" component="p">
+                                        {expanded &&
+                                            <div className="display-description">
+                                                {props.description}
+                                            </div>
+                                        }
+                                    </Typography>
+                                    <Typography variant="body1" component="p">
+                                        {expanded &&
+                                            <div className="display-description">
+                                                {props.description}
+                                            </div>
+                                        }
+                                    </Typography>
+                                    <Typography variant="body1" component="p">
+                                        {expanded &&
+                                            <div className="display-description">
+                                                {props.description}
+                                            </div>
+                                        }
+                                    </Typography>
+                                    <Typography variant="body1" component="p">
+                                        {expanded &&
+                                            <div className="display-description">
+                                                {props.description}
+                                            </div>
+                                        }
+                                    </Typography>
+                                    <Typography variant="body1" component="p">
+                                        {expanded &&
+                                            <div className="display-description">
+                                                {props.description}
+                                            </div>
+                                        }
+                                    </Typography>
+                                </div>
+                            </CardContent>
                         </div>
-                        <div className="">
-                            {posters.description}
-                        </div>
                     </div>
-                ))} */}
-                </div>
-            }
-        </Card>
+                </CardActionArea>
+                {/* <CardActions>
+                    <Button size="small" color="primary">
+                        Share
+                </Button>
+                    <Button size="small" color="primary">
+                        Learn More
+                </Button>
+                </CardActions> */}
+            </Card>
+        </div>
     )
 }
 

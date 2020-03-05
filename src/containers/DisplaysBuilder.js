@@ -6,6 +6,9 @@ import axios from "axios";
 const DisplaysBuilder = () => {
 
     const [displayState, setDisplayState] = useState(display_mock);
+    const [expanded, setExpanded] = useState(false);
+    const [showActions, setShowActions] = useState(false);
+    const [goBack, setGoBack] = useState(null);
 
     // useEffect(() => {
     //     axios
@@ -23,7 +26,8 @@ const DisplaysBuilder = () => {
             domain={display.domain}
             location= {display.location}
             description={display.description} 
-            mainImageUrl={display.mainImageUrl}/>
+            mainImageUrl={display.mainImageUrl}
+            />
         );
     });
 
