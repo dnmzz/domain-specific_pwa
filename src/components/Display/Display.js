@@ -92,7 +92,7 @@ const Display = (props) => {
                                     //     // onClick={}
                                     //     id="back-button"
                                     // >
-                                    <ArrowBackIcon onClick={goBack}/>
+                                    <ArrowBackIcon onClick={goBack} />
                                     // </IconButton>
                                 }
                             </div>
@@ -123,7 +123,7 @@ const Display = (props) => {
                     <div className="title">
                         <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
                         <div className="display-cover-content">
-                            <CardContent>
+                            <CardContent height="100%">
                                 <div className="display-name">
                                     <Typography variant="h5" component="h2">
                                         {props.name}
@@ -143,27 +143,8 @@ const Display = (props) => {
                                             </div>
                                         }
                                     </Typography>
-                                    <Typography variant="body1" component="p">
-                                        {expanded &&
-                                            <div className="display-description">
-                                                {props.description}
-                                            </div>
-                                        }
-                                    </Typography>
-                                    <Typography variant="body1" component="p">
-                                        {expanded &&
-                                            <div className="display-description">
-                                                {props.description}
-                                            </div>
-                                        }
-                                    </Typography>
-                                    <Typography variant="body1" component="p">
-                                        {expanded &&
-                                            <div className="display-description">
-                                                {props.description}
-                                            </div>
-                                        }
-                                    </Typography>
+                                </div>
+                                <div className="display-description">
                                     <Typography variant="body1" component="p">
                                         {expanded &&
                                             <div className="display-description">

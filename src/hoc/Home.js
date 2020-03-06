@@ -179,10 +179,12 @@ function Home(props) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
-                <div className="view-container" />
+                <div className="view-container"> 
                 <Switch location={modal ? location.previousView : location}>
                     <Route exact path="/" component={DisplaysBuilder} />
-                </Switch>
+                </Switch>      
+                </div>
+                
 
                 <TransitionGroup>
                     <CSSTransition
