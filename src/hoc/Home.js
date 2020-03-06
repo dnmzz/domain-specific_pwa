@@ -21,6 +21,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition as OriginalCSSTransition } from 'react-transition-group';
 import { useHistory } from "react-router-dom";
 import Display from '../components/Display/Display';
+import NavBar from '../components/Layout/Navbar';
 import '../hoc/home.css';
 
 class CSSTransition extends OriginalCSSTransition {
@@ -73,7 +74,6 @@ function Home(props) {
 
     const modal = location.state && location.state.to === 'modal';
     let pos = {};
-    let key;
     let id;
     let name;
     let domain;
@@ -83,7 +83,6 @@ function Home(props) {
 
     if (modal) {
         pos = location.state.meta.from;
-        key = location.state.data.id;
         id = location.state.data.id;
         name = location.state.data.name;
         domain = location.state.data.domain
@@ -141,7 +140,7 @@ function Home(props) {
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         geo context app
-          </Typography>
+                    </Typography>
                     <IconButton>
                         <YoutubeSearchedForIcon />
                     </IconButton>
@@ -179,12 +178,11 @@ function Home(props) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
-                <div className="view-container"> 
-                <Switch location={modal ? location.previousView : location}>
-                    <Route exact path="/" component={DisplaysBuilder} />
-                </Switch>      
+                <div className="view-container">
+                    <Switch location={modal ? location.previousView : location}>
+                        <Route exact path="/" component={DisplaysBuilder} />
+                    </Switch>
                 </div>
-                
 
                 <TransitionGroup>
                     <CSSTransition
@@ -197,7 +195,7 @@ function Home(props) {
                         <div className="modal-container" style={pos}>
                             <Switch location={location}>
                                 <Route path="/display/:id" component={() => <Display
-                                    key={key} id={id}
+                                    id={id}
                                     name={name}
                                     domain={domain}
                                     location={loc}
@@ -205,7 +203,7 @@ function Home(props) {
                                     mainImageUrl={mainImageUrl}
                                     expanded
                                     showActions
-                                    goBack={goBack} />} />
+                                    goBack={goBack} {...location} />} />
                             </Switch>
                         </div>
                     </CSSTransition>
@@ -216,22 +214,3 @@ function Home(props) {
 }
 
 export default Home;
-
-
-// import React, { useState } from 'react';
-// import Aux from '../auxiliar/auxiliar';
-// import NavBar from '../components/Layout/Navbar';
-// import DisplaysBuilder from '../containers/DisplaysBuilder';
-
-// const Home = (props) => {
-//     return (
-//         <Aux>
-//             <NavBar />
-
-//                 <DisplaysBuilder />
-
-//         </Aux>
-//     )
-// }
-
-// export default Home;

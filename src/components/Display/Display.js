@@ -25,7 +25,7 @@ const useStyles = makeStyles({
         borderRadius: 0
     },
     media: {
-        height: 140,
+        height: 232,
     },
     actions: {
         icon: {
@@ -49,7 +49,6 @@ const Display = (props) => {
     let history = useHistory();
     const refContainer = useRef(null);
     const getBoundingClientRect = useBoundingclientrect(refContainer);
-    const [expandedValue, setExpanded] = useState(false);
 
     const goToDisplay = (propData) => {
         const { top, right, bottom, left, width, height } = getBoundingClientRect;
@@ -62,7 +61,6 @@ const Display = (props) => {
                     from: { top, right, bottom, left, width, height }
                 },
                 data: {
-                    key: propData.key,
                     id: propData.id,
                     name: propData.name,
                     domain: propData.domain,
@@ -72,12 +70,12 @@ const Display = (props) => {
                 }
             },
         });
-        setExpanded(true);
+        
     };
 
     return (
         <div ref={refContainer}>
-            <Card onClick={() => goToDisplay(props)} className={classes.root}>
+            <Card onClick={() => goToDisplay(props)} className="display">
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
@@ -123,7 +121,7 @@ const Display = (props) => {
                     <div className="title">
                         <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
                         <div className="display-cover-content">
-                            <CardContent height="100%">
+                            <CardContent>
                                 <div className="display-name">
                                     <Typography variant="h5" component="h2">
                                         {props.name}
@@ -136,23 +134,20 @@ const Display = (props) => {
                                     </Typography>
                                 </div>
                                 <div className="display-description">
-                                    <Typography variant="body1" component="p">
-                                        {expanded &&
-                                            <div className="display-description">
-                                                {props.description}
-                                            </div>
-                                        }
-                                    </Typography>
+                                    {expanded &&
+                                        <Typography variant="body1" component="p">
+                                            {props.description}
+                                        </Typography>
+
+                                    }
                                 </div>
-                                <div className="display-description">
-                                    <Typography variant="body1" component="p">
-                                        {expanded &&
-                                            <div className="display-description">
-                                                {props.description}
-                                            </div>
-                                        }
-                                    </Typography>
-                                </div>
+                                {/* <div className="display-description">
+                                    {expanded &&
+                                        <Typography variant="body1" component="p">
+                                            {props.description}
+                                        </Typography>
+                                    }
+                                </div> */}
                             </CardContent>
                         </div>
                     </div>
