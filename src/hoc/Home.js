@@ -21,7 +21,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition as OriginalCSSTransition } from 'react-transition-group';
 import { useHistory } from "react-router-dom";
 import Display from '../components/Display/Display';
-import NavBar from '../components/Layout/Navbar';
 import '../hoc/home.css';
 
 class CSSTransition extends OriginalCSSTransition {
@@ -80,6 +79,7 @@ function Home(props) {
     let loc;
     let description;
     let mainImageUrl;
+    let arr = location.array;
 
     if (modal) {
         pos = location.state.meta.from;
@@ -180,7 +180,7 @@ function Home(props) {
             <main className={classes.content}>
                 <div className="view-container">
                     <Switch location={modal ? location.previousView : location}>
-                        <Route exact path="/" component={DisplaysBuilder} />
+                        <Route exact path="/" component={() => <DisplaysBuilder />} />
                     </Switch>
                 </div>
 
@@ -203,7 +203,7 @@ function Home(props) {
                                     mainImageUrl={mainImageUrl}
                                     expanded
                                     showActions
-                                    goBack={goBack} {...location} />} />
+                                    goBack={goBack} {...arr}/>} />
                             </Switch>
                         </div>
                     </CSSTransition>

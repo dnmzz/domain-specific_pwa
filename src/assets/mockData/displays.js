@@ -30,5 +30,5 @@ export const display_mock = [
       { id: 4, name: 'Poster 4', description: 'Description Poster 4', coverUrl: "", contentUrl: "" },
       { id: 5, name: 'Poster 5', description: 'Description Poster 5', coverUrl: "", contentUrl: "" },
     ],
-  },
+  }
 ];

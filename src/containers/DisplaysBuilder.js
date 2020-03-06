@@ -24,6 +24,7 @@ const DisplaysBuilder = () => {
             location= {display.location}
             description={display.description} 
             mainImageUrl={display.mainImageUrl}
+            mock={display_mock}
             />
         );
     });
