@@ -33,3 +33,7 @@ body {
     height: 100vh !important;
     overflow: auto;
   }
+
+  .modal-container > div {
+    height: 100%;
+  }
