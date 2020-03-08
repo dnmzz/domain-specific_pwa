@@ -37,3 +37,7 @@ body {
   .modal-container > div {
     height: 150vh;
   }
+
+.MuiCard-root {
+  margin-bottom: unset;
+}
