@@ -80,6 +80,8 @@ function Home(props) {
     let description;
     let mainImageUrl;
     let arr = location.array;
+    let posters;
+
 
     if (modal) {
         pos = location.state.meta.from;
@@ -89,6 +91,7 @@ function Home(props) {
         loc = location.state.data.location
         description = location.state.data.description
         mainImageUrl = location.state.data.mainImageUrl
+        posters = location.state.data.posters
     }
 
 
@@ -201,6 +204,7 @@ function Home(props) {
                                     location={loc}
                                     description={description}
                                     mainImageUrl={mainImageUrl}
+                                    posters= {posters}
                                     expanded
                                     showActions
                                     goBack={goBack} {...arr}/>} />

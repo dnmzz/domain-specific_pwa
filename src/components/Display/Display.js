@@ -67,7 +67,8 @@ const Display = (props) => {
                     domain: propData.domain,
                     location: propData.location,
                     description: propData.description,
-                    mainImageUrl: propData.mainImageUrl
+                    mainImageUrl: propData.mainImageUrl,
+                    posters: propData.posters
                 }
             },
         });
@@ -146,16 +147,22 @@ const Display = (props) => {
                                         <Typography variant="body1" component="p">
                                             {props.description}
                                         </Typography>
-
                                     }
                                 </div>
-                                {/* <div className="display-description">
-                                    {expanded &&
-                                        <Typography variant="body1" component="p">
-                                            {props.description}
-                                        </Typography>
-                                    }
-                                </div> */}
+                                {expanded &&
+                                    <div className="posters">
+                                        {props.posters.map((poster) => (
+                                            <div key={poster.id} className="ingredient">
+                                                <div className="amount">
+                                                    {poster.name}
+                                                </div>
+                                                <div className="description">
+                                                    {poster.description}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                }
                             </CardContent>
                         </div>
                     </div>

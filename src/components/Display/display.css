@@ -52,6 +52,11 @@
     bottom: -25px;
   }
 
+  .posters {
+    margin-top: 2rem;
+
+  }
+
 .ingredient {
     display: flex;
     align-items: center;
@@ -63,10 +68,9 @@
     color: #54BC9E;
     margin: 16px;
     font-size: 14px;
-    width: 52px;
     text-align: center;
+    margin-left: 0rem;
   }
-
 
   .enable-transition {
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
