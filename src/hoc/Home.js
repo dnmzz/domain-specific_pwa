@@ -204,10 +204,10 @@ function Home(props) {
                                     location={loc}
                                     description={description}
                                     mainImageUrl={mainImageUrl}
-                                    posters= {posters}
+                                    posters={posters}
                                     expanded
                                     showActions
-                                    goBack={goBack} {...arr}/>} />
+                                    goBack={goBack} {...arr} />} />
                             </Switch>
                         </div>
                     </CSSTransition>

@@ -16,15 +16,15 @@ const DisplaysBuilder = () => {
 
     var displays = displayState.map(display => {
         return (
-            <Display 
-            key={display.id} 
-            id={display.id} 
-            name={display.name}
-            domain={display.domain}
-            location= {display.location}
-            description={display.description} 
-            mainImageUrl={display.mainImageUrl}
-            posters={display.posters}
+            <Display
+                key={display.id}
+                id={display.id}
+                name={display.name}
+                domain={display.domain}
+                location={display.location}
+                description={display.description}
+                mainImageUrl={display.mainImageUrl}
+                posters={display.posters}
             />
         );
     });

@@ -14,7 +14,6 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import TimerIcon from '@material-ui/icons/Timer';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import { useHistory } from "react-router-dom";
 import useBoundingclientrect from "@rooks/use-boundingclientrect"
 import './display.css';
