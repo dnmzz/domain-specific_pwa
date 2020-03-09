@@ -182,7 +182,7 @@ function Home(props) {
             </nav>
             <main className={classes.content}>
                 <div className="view-container">
-                    <Switch location={modal ? location.previousView : location}>
+                    <Switch location={modal ? props.location : location}>
                         <Route exact path="/" component={() => <DisplaysBuilder />} />
                     </Switch>
                 </div>
