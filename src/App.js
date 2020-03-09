@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-// import NavBar from './components/Layout/Navbar';
 import Home from './hoc/Home';
-import DisplaysBuilder from './containers/DisplaysBuilder';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
