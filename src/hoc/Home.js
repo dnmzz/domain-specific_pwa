@@ -144,9 +144,9 @@ function Home(props) {
                     <Typography variant="h6" noWrap>
                         geo context app
                     </Typography>
-                    <IconButton>
-                        <YoutubeSearchedForIcon />
-                    </IconButton>
+                    <div className="">
+                        <img src={require('../assets/images/geo_logo.png')} height={50} alt="bug" />
+                    </div>
                 </Toolbar>
             </AppBar>
             <nav className={classes.drawer} aria-label="mailbox folders">
