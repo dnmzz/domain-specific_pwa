@@ -141,12 +141,9 @@ function Home(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h5" noWrap>
                         geo context app
                     </Typography>
-                    <div className="">
-                        <img src={require('../assets/images/geo_logo.png')} height={50} alt="bug" />
-                    </div>
                 </Toolbar>
             </AppBar>
             <nav className={classes.drawer} aria-label="mailbox folders">
