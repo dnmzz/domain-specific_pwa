@@ -9,21 +9,23 @@ const DisplaysBuilder = () => {
 
     // useEffect(() => {
     //     axios
-    //       .get("https://jsonplaceholder.typicode.com/users")
-    //       .then(response => setDisplayState(response.data));
+    //       .get("http://localhost:8081/landingPageDisplays/via-sacra")
+    //       .then(response => setDisplayState(response.data.Displays));
     //   }, []);
 
 
     var displays = displayState.map(display => {
         return (
-            <Display 
-            key={display.id} 
-            id={display.id} 
-            name={display.name}
-            domain={display.domain}
-            location= {display.location}
-            description={display.description} 
-            mainImageUrl={display.mainImageUrl}/>
+            <Display
+                key={display.id}
+                id={display.id}
+                name={display.name}
+                domain={display.domain}
+                location={display.location}
+                description={display.description}
+                mainImageUrl={display.mainImageUrl}
+                posters={display.posters}
+            />
         );
     });
 

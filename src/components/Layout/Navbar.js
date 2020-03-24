@@ -142,7 +142,7 @@ function NavBar(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <DisplaysBuilder />
+        {/* <DisplaysBuilder /> */}
       </main>
     </div>
   );

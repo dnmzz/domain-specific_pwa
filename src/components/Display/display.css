@@ -1,35 +1,11 @@
+@import "../../hoc/animations.css";
+
+
 .title > img {
     float: left;
     margin: 16px;
     width: 52px;
-}
-
-.header {
-    max-width: 100%;
-}
-
-.actions {
-    position: absolute !important;
-    display: flex;
-    margin-left: 0.5rem;
-    margin-top: 0.5rem;
-    color: white;
-}
-
-.right {
-    right: 0;
-}
-
-.floating {
-    position: absolute !important;
-    display:flex;
-    right: 25px;
-    bottom: -25px;
-}
-
-.text {
-    font-size: 16px !important;
-}
+  }
 
 .display-name {
     text-align: left;
@@ -38,3 +14,131 @@
 .display-location {
     text-align: left;
 }
+
+.display-description {
+    text-align: left;
+    font-size: 16px !important;
+    margin-top: 2rem;
+    margin-left: 4.3rem;
+}
+
+
+.header > img {
+    max-width: 100%;
+}
+
+.header .actions {
+    position: absolute !important;
+    display: flex;
+}
+
+.actions {
+    position: absolute !important;
+    display: flex;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    opacity: 0;
+}
+
+.header .actions.right {
+    right: 0;
+}
+
+.header .floating {
+    position: absolute !important;
+    display: flex;
+    right: 25px;
+    bottom: -25px;
+  }
+
+  .posters {
+    margin-top: 2rem;
+
+  }
+
+.ingredient {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.ingredient .amount {
+    flex-grow: 0;
+    color: #54BC9E;
+    margin: 16px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 0rem;
+  }
+
+  .enable-transition {
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  }
+  .appear {
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    opacity: 0;
+  }
+  .modal-enter-active .appear {
+    opacity: 1;
+  }
+  .display {
+    height: 100%;
+    overflow: auto;
+    max-width: 500;
+    border-radius: 0 !important;
+    margin-bottom: 1rem;
+  }
+  .display .title .header {
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  }
+  .modal-enter-active .display .title .header {
+    font-size: 32px;
+  }
+  .display .title .sub {
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  }
+  .modal-enter-active .display .title .sub {
+    font-size: 18px;
+  }
+  .display .actions {
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    opacity: 0;
+  }
+  .modal-enter-active .display .actions {
+    opacity: 1;
+  }
+  .display .floating {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .display .floating .like {
+    width: 5px;
+    height: 5px;
+    background-color: #EE6061;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    opacity: 0;
+  }
+  .modal-enter-active .display .floating .like {
+    width: 56px;
+    height: 56px;
+  }
+  .modal-enter-active .display .floating .like {
+    opacity: 1;
+  }
+  .display .text {
+    margin-left: 84px;
+    padding-left: 0 !important;
+  }
+  .modal-appear-active .display .title,
+  .modal-enter-active .display .title {
+    margin-top: 25px;
+  }
+  
