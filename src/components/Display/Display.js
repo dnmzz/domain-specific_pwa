@@ -16,6 +16,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useHistory } from "react-router-dom";
 import useBoundingclientrect from "@rooks/use-boundingclientrect"
+import Iframe from 'react-iframe';
+import SwipeableTextMobileStepper from '../Poster/Poster';
 import './display.css';
 
 const useStyles = makeStyles({
@@ -52,26 +54,27 @@ const Display = (props) => {
 
     const goToDisplay = (propData) => {
         const { top, right, bottom, left, width, height } = getBoundingClientRect;
-
-        history.push({
-            pathname: `/display/${propData.id}`,
-            state: {
-                to: 'modal',
-                meta: {
-                    from: { top, right, bottom, left, width, height }
+        const actual_location = window.location.href;
+        if (!actual_location.includes("/display")) {
+            history.push({
+                pathname: `/display/${propData.id}`,
+                state: {
+                    to: 'modal',
+                    meta: {
+                        from: { top, right, bottom, left, width, height }
+                    },
+                    data: {
+                        id: propData.id,
+                        name: propData.name,
+                        domain: propData.domain,
+                        location: propData.location,
+                        description: propData.description,
+                        mainImageUrl: propData.mainImageUrl,
+                        posters: propData.posters
+                    }
                 },
-                data: {
-                    id: propData.id,
-                    name: propData.name,
-                    domain: propData.domain,
-                    location: propData.location,
-                    description: propData.description,
-                    mainImageUrl: propData.mainImageUrl,
-                    posters: propData.posters
-                }
-            },
-        });
-
+            });
+        }
     };
 
     return (
@@ -80,8 +83,7 @@ const Display = (props) => {
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={props.mainImageUrl}
-                        title="Contemplative Reptile">
+                        image={props.mainImageUrl}>
                         <div className="header">
                             <div className="actions left">
                                 {goBack &&
@@ -150,16 +152,7 @@ const Display = (props) => {
                                 </div>
                                 {expanded &&
                                     <div className="posters">
-                                        {props.posters.map((poster) => (
-                                            <div key={poster.id} className="ingredient">
-                                                <div className="amount">
-                                                    {poster.name}
-                                                </div>
-                                                <div className="description">
-                                                    {poster.description}
-                                                </div>
-                                            </div>
-                                        ))}
+                                        <SwipeableTextMobileStepper posters={props.posters}/>
                                     </div>
                                 }
                             </CardContent>
