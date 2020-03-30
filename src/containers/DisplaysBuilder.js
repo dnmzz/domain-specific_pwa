@@ -5,16 +5,22 @@ import axios from "axios";
 
 const DisplaysBuilder = () => {
 
-    const [displayState, setDisplayState] = useState(display_mock);
+    const [state, setDisplayState] = useState({
+        isLoading: true,
+        displays: display_mock
+    });
 
     // useEffect(() => {
     //     axios
-    //       .get("http://localhost:8081/landingPageDisplays/via-sacra")
-    //       .then(response => setDisplayState(response.data.Displays));
-    //   }, []);
+    //         .get("http://localhost:8081/landingPageDisplays/via-sacra")
+    //         .then(response => setDisplayState({
+    //             isLoading: false,
+    //             displays: response.data.Displays
+    //         }));
+    // }, []);
 
 
-    var displays = displayState.map(display => {
+    var displays = state.displays.map(display => {
         return (
             <Display
                 key={display.id}

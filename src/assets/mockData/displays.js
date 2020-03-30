@@ -20,7 +20,7 @@ export const display_mock = [
     name: 'Segunda queda',
     domain: 'Via Sacra - Braga',
     location: 'Largo do Paço',
-    mainImageUrl: 'https://www.focus.jor.br/wp-content/uploads/2020/01/silueta-de-catolico-crucifixos-e-amanhecer_1150-6793-550x366.jpg',
+    mainImageUrl: 'https://image.freepik.com/fotos-gratis/silueta-de-catolico-crucifixos-e-amanhecer_1150-6793.jpg',
     mainImageTitle: 'Image 2',
     description: 'Abundant in color, and healthy, delicious goodness, cooking with these South American purple potatoes is a treat. Boil, mash, bake, or roast them. For taste cook with chicken stock, and a dash of extra virgin olive oil.',
     posters: [
