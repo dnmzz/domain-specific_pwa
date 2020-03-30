@@ -10,6 +10,7 @@ import CardText from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import TimerIcon from '@material-ui/icons/Timer';
 import ShareIcon from '@material-ui/icons/Share';
@@ -39,7 +40,12 @@ const useStyles = makeStyles({
             width: 60,
             height: 60,
             color: 'white'
-        }
+        },
+        likeIcon: {
+            width: '43%',
+            height: '43%',
+            color: 'white',
+        },
     }
 });
 
@@ -99,37 +105,18 @@ const Display = (props) => {
                             </div>
                             {showActions &&
                                 <div className="actions right">
-                                    {/* <IconButton
-                                    iconStyle={classes.actions.icon}
-                                    style={classes.actions.button}
-                                > */}
-                                    <TimerIcon />
-                                    {/* </IconButton> */}
-                                    {/* <IconButton
-                                    iconStyle={classes.actions.icon}
-                                    style={classes.actions.button}
-                                > */}
-                                    <ShareIcon />
-                                    {/* </IconButton> */}
-                                    {/* <IconButton
-                                    iconStyle={classes.actions.icon}
-                                    style={classes.actions.button}
-                                > */}
-                                    <MoreVertIcon />
-                                    {/* </IconButton> */}
+                                    <div className="floating">
+                                        <div className="like">
+                                            <FavoriteBorderIcon style={classes.actions.likeIcon} />
+                                        </div>
+                                    </div>
+                            }
                                 </div>
                             }
                         </div>
                     </CardMedia>
                     <div className="title">
                         <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
-                        {/* {showActions &&
-                            <div className="floating">
-                                <div className="like">
-                                    <FavoriteBorderOutlinedIcon style={classes.actions.likeIcon} />
-                                </div>
-                            </div>
-                        } */}
                         <div className="display-cover-content">
                             <CardContent>
                                 <div className="display-name">
@@ -152,7 +139,7 @@ const Display = (props) => {
                                 </div>
                                 {expanded &&
                                     <div className="posters">
-                                        <SwipeableTextMobileStepper posters={props.posters}/>
+                                        <SwipeableTextMobileStepper posters={props.posters} />
                                     </div>
                                 }
                             </CardContent>

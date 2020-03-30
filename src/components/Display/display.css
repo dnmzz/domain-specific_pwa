@@ -22,14 +22,23 @@
     margin-left: 4.3rem;
 }
 
-
 .header > img {
     max-width: 100%;
 }
 
-.header .actions {
+.header .actions.right {
     position: absolute !important;
     display: flex;
+    margin-top: 12.4rem;
+    color: white;
+}
+
+.header .actions.left {
+  position: absolute !important;
+  display: flex;
+  color: white;
+  margin-top: 1.5rem;
+  margin-left: 1.3rem;
 }
 
 .actions {
