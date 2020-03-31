@@ -181,15 +181,15 @@ function Home(props) {
             <main className={classes.content}>
                 <div className="view-container">
                     <Switch location={modal ? props.location : location}>
-                        <Route exact path="/" component={() => <DisplaysBuilder />} />
+                        <Route exact path="/home" component={() => <DisplaysBuilder />} />
                     </Switch>
                 </div>
 
-                {/* <div className="view-container">
+                <div className="view-container">
                     <Switch location={modal ? props.location : location}>
                         <Route exact path="/" component={() => <LandingPage />} />
                     </Switch>
-                </div> */}
+                </div>
 
                 <TransitionGroup>
                     <CSSTransition
