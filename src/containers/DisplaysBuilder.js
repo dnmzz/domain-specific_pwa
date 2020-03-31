@@ -2,20 +2,21 @@ import React, { useState, useEffect } from 'react';
 import Display from '../components/Display/Display';
 import { display_mock } from '../assets/mockData/displays';
 import axios from "axios";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const DisplaysBuilder = () => {
 
     const [state, setDisplayState] = useState({
-        isLoading: true,
+        isLoading: false,
         displays: display_mock
     });
 
     // useEffect(() => {
     //     axios
-    //         .get("http://localhost:8081/landingPageDisplays/via-sacra")
+    //         .get("https://jsonplaceholder.typicode.com/todos/1")
     //         .then(response => setDisplayState({
     //             isLoading: false,
-    //             displays: response.data.Displays
+    //             displays: display_mock
     //         }));
     // }, []);
 
@@ -35,7 +36,11 @@ const DisplaysBuilder = () => {
         );
     });
 
-    return <div>{displays}</div>
+    if (!state.isLoading) {
+        return <div>{displays}</div>
+    } else {
+        return <CircularProgress />
+    }
 }
 
 export default DisplaysBuilder;
