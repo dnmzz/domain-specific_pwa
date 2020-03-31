@@ -21,6 +21,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition as OriginalCSSTransition } from 'react-transition-group';
 import { useHistory } from "react-router-dom";
 import Display from '../components/Display/Display';
+import LandingPage from '../pages/LandingPage';
 import '../hoc/home.css';
 
 class CSSTransition extends OriginalCSSTransition {
@@ -183,6 +184,12 @@ function Home(props) {
                         <Route exact path="/" component={() => <DisplaysBuilder />} />
                     </Switch>
                 </div>
+
+                {/* <div className="view-container">
+                    <Switch location={modal ? props.location : location}>
+                        <Route exact path="/" component={() => <LandingPage />} />
+                    </Switch>
+                </div> */}
 
                 <TransitionGroup>
                     <CSSTransition
