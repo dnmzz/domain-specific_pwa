@@ -37,7 +37,7 @@ function LandingPage(props) {
                 <h1>A MODERN WAY TO</h1>
                 <Typical
                     steps={['INTERACT', 1000, 'VISUALIZE.', 500]}
-                    loop={1}
+                    loop={Infinity}
                     wrapper="h2"
                 />
             </div>
