@@ -16,8 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import DisplaysBuilder from '../containers/DisplaysBuilder';
-import YoutubeSearchedForIcon from '@material-ui/icons/YoutubeSearchedFor';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition as OriginalCSSTransition } from 'react-transition-group';
 import { useHistory } from "react-router-dom";
 import Display from '../components/Display/Display';
@@ -47,6 +46,7 @@ const useStyles = makeStyles(theme => ({
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
         },
+        backgroundColor: '#324B7A'
     },
     menuButton: {
         marginRight: theme.spacing(2),
