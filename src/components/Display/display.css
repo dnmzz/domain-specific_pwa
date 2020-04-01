@@ -65,6 +65,14 @@
     margin-top: 2rem;
   }
 
+  .posters-title-header {
+    font-family: 'Sero Pro Thin' !important;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 5rem;
+    color: #324B7A;
+  }
+
 .ingredient {
     display: flex;
     align-items: center;
@@ -134,7 +142,7 @@
   .display .floating .like {
     width: 5px;
     height: 5px;
-    background-color: #EE6061;
+    background-color: #324B7A;;
     border-radius: 50%;
     display: flex;
     align-items: center;
