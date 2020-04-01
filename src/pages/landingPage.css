@@ -1,9 +1,13 @@
 .landingPage-entryText {
-    margin-top: 15rem !important;
+    margin-top: 18rem !important;
     margin-bottom: 3rem !important;
     font-family: 'Sero Pro Thin';
     font-weight: 100;
     font-style: normal;
     font-size: 1rem;
     color: #324B7A;
+}
+
+.landingPage-startBtn {
+    margin-top: 1rem !important;
 }

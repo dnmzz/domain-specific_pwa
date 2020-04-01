@@ -35,27 +35,18 @@ function LandingPage(props) {
         <div className={classes.root}>
             <div className="landingPage-entryText">
                 <Typical
-                    steps={['A SIMPLE WAY', 1000, 'A SIMPLE TO INTERACT WITH DISPLAYS', 500]}
+                    steps={['A SIMPLE WAY', 1000, 'A SIMPLE TO INTERACT WITH DISPLAY.', 500]}
                     loop={Infinity}
                     wrapper="h1"
                 />
             </div>
-
-            {/* <Fab color="primary" aria-label="add">
-                <AddIcon />
-            </Fab> */}
-            {/* <Fab color="secondary" aria-label="edit">
-                <EditIcon />
-            </Fab> */}
-            <Fab onClick={() => go(props)} variant="extended">
-                <NavigationIcon className={classes.extendedIcon} />
-                    GET STARTED
-            </Fab>
-            {/* <Fab disabled aria-label="like">
-                <FavoriteIcon />
-            </Fab> */}
+            <div className="landingPage-startBtn">
+                <Fab onClick={() => go(props)} variant="extended">
+                    <NavigationIcon className={classes.extendedIcon} />
+                        GET STARTED
+                </Fab>
+            </div>
         </div>
-
     );
 }
 
