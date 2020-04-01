@@ -34,10 +34,11 @@ function LandingPage(props) {
 
         <div className={classes.root}>
             <div className="landingPage-entryText">
+                <h1>A MODERN WAY TO</h1>
                 <Typical
-                    steps={['A SIMPLE WAY', 1000, 'A SIMPLE TO INTERACT WITH DISPLAY.', 500]}
-                    loop={Infinity}
-                    wrapper="h1"
+                    steps={['INTERACT', 1000, 'VISUALIZE.', 500]}
+                    loop={1}
+                    wrapper="h2"
                 />
             </div>
             <div className="landingPage-startBtn">
