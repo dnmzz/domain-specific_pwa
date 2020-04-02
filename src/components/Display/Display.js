@@ -53,8 +53,9 @@ const Display = (props) => {
 
     const goToDisplay = (propData) => {
         const { top, right, bottom, left, width, height } = getBoundingClientRect;
-        const actual_location = window.location.href;
-        if (!actual_location.includes("/display")) {
+        let actual_location = window.location.href.split('/');
+
+        if (actual_location[3].includes("home")) {
             history.push({
                 pathname: `/display/${propData.id}`,
                 state: {
