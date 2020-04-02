@@ -2,19 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Display from '../components/Display/Display';
 import { display_mock } from '../assets/mockData/displays';
 import axios from "axios";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const DisplaysBuilder = () => {
 
-    const [displayState, setDisplayState] = useState(display_mock);
+    const [state, setDisplayState] = useState({
+        isLoading: false,
+        displays: display_mock
+    });
 
     // useEffect(() => {
     //     axios
-    //       .get("http://localhost:8081/landingPageDisplays/via-sacra")
-    //       .then(response => setDisplayState(response.data.Displays));
-    //   }, []);
+    //         .get("https://jsonplaceholder.typicode.com/todos/1")
+    //         .then(response => setDisplayState({
+    //             isLoading: false,
+    //             displays: display_mock
+    //         }));
+    // }, []);
 
 
-    var displays = displayState.map(display => {
+    var displays = state.displays.map(display => {
         return (
             <Display
                 key={display.id}
@@ -29,7 +36,11 @@ const DisplaysBuilder = () => {
         );
     });
 
-    return <div>{displays}</div>
+    if (!state.isLoading) {
+        return <div>{displays}</div>
+    } else {
+        return <CircularProgress />
+    }
 }
 
 export default DisplaysBuilder;
