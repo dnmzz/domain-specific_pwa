@@ -1,5 +1,8 @@
 body {
     margin: 0;
+    background-image: url("https://db4beginners.com/wp-content/uploads/2019/10/pexels-photo-799443.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   .view-container {
@@ -8,6 +11,12 @@ body {
 
   .view-container > div > div {
     margin-bottom: 1rem;
+  }
+
+  .view-container > div > div > div {
+    margin-bottom: 1rem;
+    border-radius: 1rem !important;
+    box-shadow: 0 4px 30px 0 rgba(0,0,0,0.1);
   }
 
   .modal-container {
