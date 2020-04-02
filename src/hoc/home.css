@@ -3,6 +3,7 @@ body {
     background-image: url("https://db4beginners.com/wp-content/uploads/2019/10/pexels-photo-799443.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    width: 100%;
   }
 
   .view-container {
