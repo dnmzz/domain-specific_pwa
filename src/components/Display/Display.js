@@ -103,7 +103,6 @@ const Display = (props) => {
                                             <FavoriteBorderIcon style={classes.actions.likeIcon} />
                                         </div>
                                     </div>
-                            }
                                 </div>
                             }
                         </div>
