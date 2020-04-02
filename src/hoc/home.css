@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100%;
+    background-size:cover;
   }
 
   .view-container {
