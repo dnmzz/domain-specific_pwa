@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Display from '../components/Display/Display';
 import { display_mock } from '../assets/mockData/displays';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Backdrops from '../components/Auxiliars/Backdrop';
 import { getDisplaysByContext } from '../services/DisplaysAPI';
 
 const DisplaysBuilder = () => {
-
     const [state, setDisplayState] = useState({
         isLoading: true,
         displays: []
@@ -42,7 +41,7 @@ const DisplaysBuilder = () => {
             </div>
             :
             <div>
-                <CircularProgress color="secondary" />
+                <Backdrops />
             </div>}
     </div>
 }

@@ -77,73 +77,71 @@ const Display = (props) => {
         }
     };
 
+    const addToBookmarks = (propData) => {
+        alert(propData.name + ' added to bookmarks!');
+    };
+
     return (
         <div ref={refContainer}>
             <Card onClick={() => goToDisplay(props)} className="display">
-                <CardActionArea>
-                    <CardMedia
-                        className={classes.media}
-                        image={props.mainImageUrl}>
-                        <div className="header">
-                            <div className="actions left">
-                                {goBack &&
-                                    // <IconButton
-                                    //     iconstyle={classes.actions.icon}
-                                    //     style={classes.actions.button}
-                                    //     // onClick={}
-                                    //     id="back-button"
-                                    // >
-                                    <ArrowBackIcon onClick={goBack} />
-                                    // </IconButton>
-                                }
-                            </div>
-                            {showActions &&
-                                <div className="actions right">
-                                    <div className="floating">
-                                        <div className="like">
-                                            <FavoriteBorderIcon style={classes.actions.likeIcon} />
-                                        </div>
-                                    </div>
-                                </div>
+                <CardMedia
+                    className={classes.media}
+                    image={props.mainImageUrl}>
+                    <div className="header">
+                        <div className="actions left">
+                            {goBack &&
+                                <ArrowBackIcon onClick={goBack} />
                             }
                         </div>
-                    </CardMedia>
-                    <div className="title">
-                        <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
-                        <div className="display-cover-content">
-                            <CardContent>
-                                <div className="display-name">
-                                    <Typography variant="h5" component="h2">
-                                        {props.name}
-                                    </Typography>
+                        {showActions &&
+                            <div className="actions right">
+                                <div className="floating">
+                                    <CardActionArea>
+                                        <div className="like">
+                                            <FavoriteBorderIcon onClick={() => addToBookmarks(props)} style={classes.actions.likeIcon} />
+                                        </div>
+                                    </CardActionArea>
                                 </div>
+                            </div>
+                        }
+                    </div>
+                </CardMedia>
+                <div className="title">
+                    <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
+                    <div className="display-cover-content">
+                        <CardContent>
+                            <div className="display-name">
+                                <Typography variant="h5" component="h2">
+                                    {props.name}
+                                </Typography>
+                            </div>
 
-                                <div className="display-location">
-                                    <Typography variant="subtitle1" color="textSecondary" component="p">
-                                        {props.location}
-                                    </Typography>
-                                </div>
-                                <div className="display-description">
-                                    {expanded &&
-                                        <Typography variant="body1" component="p">
-                                            {props.description}
-                                        </Typography>
-                                    }
-                                </div>
+                            <div className="display-location">
+                                <Typography variant="subtitle1" color="textSecondary" component="p">
+                                    {props.location}
+                                </Typography>
+                            </div>
+                            <div className="display-description">
                                 {expanded &&
-                                    <div className="posters">
-                                        <div className="posters-title-header">
+                                    <Typography variant="body1" component="p">
+                                        {props.description}
+                                    </Typography>
+                                }
+                            </div>
+                            {expanded &&
+                                <div className="posters">
+                                    <div className="posters-title-header">
                                         <Typography variant="h5" component="h2">
                                             P O S T E R S
                                         </Typography>
-                                        </div>
-                                        <SwipeableTextMobileStepper posters={props.posters} />
                                     </div>
-                                }
-                            </CardContent>
-                        </div>
+                                    <SwipeableTextMobileStepper posters={props.posters} />
+                                </div>
+                            }
+                        </CardContent>
                     </div>
-                </CardActionArea>
+                </div>
+
                 {/* <CardActions>
                     <Button size="small" color="primary">
                         Share
