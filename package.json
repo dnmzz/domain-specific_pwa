@@ -13,6 +13,7 @@
     "@types/react-transition-group": "^4.2.4",
     "axios": "^0.19.2",
     "classnames": "latest",
+    "google-map-react": "^1.1.7",
     "material-design-icons": "^3.0.1",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.13.1",

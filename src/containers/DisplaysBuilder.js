@@ -3,6 +3,7 @@ import Display from '../components/Display/Display';
 import { display_mock } from '../assets/mockData/displays';
 import Backdrops from '../components/Auxiliars/Backdrop';
 import { getDisplaysByContext } from '../services/DisplaysAPI';
+import CustomizedSwitches from '../components/Auxiliars/Switch';
 
 const DisplaysBuilder = () => {
     const [state, setDisplayState] = useState({
@@ -37,6 +38,7 @@ const DisplaysBuilder = () => {
     return <div>
         {state.displays.length > 0 ?
             <div>
+                <CustomizedSwitches />
                 {displays}
             </div>
             :
