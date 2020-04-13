@@ -9,7 +9,7 @@ class Teste extends Component {
       lat: 41.447111,
       lng: -8.292756
     },
-    zoom: 11
+    zoom: 30
   };
  
   render() {
@@ -22,8 +22,8 @@ class Teste extends Component {
           defaultZoom={this.props.zoom}
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
+            lat={41.447111}
+            lng={-8.292756}
             text="My Marker"
           />
         </GoogleMapReact>

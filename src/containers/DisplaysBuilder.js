@@ -11,8 +11,10 @@ const DisplaysBuilder = () => {
         displays: []
     });
 
+    const domain_id = '5e9491052729a400048e7928';
+
     useEffect(() => {
-        getDisplaysByContext('via-sacra')
+        getDisplaysByContext(domain_id)
             .then(response => setDisplayState({
                 isLoading: false,
                 displays: response.data.Displays
