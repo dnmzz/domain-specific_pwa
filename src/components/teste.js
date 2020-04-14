@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { display_mock } from '../assets/mockData/displays';
  
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
 class Teste extends Component {
   static defaultProps = {
     center: {
-      lat: 41.447111,
-      lng: -8.292756
+      lat: 41.5497472,
+      lng: -8.4286234
     },
-    zoom: 30
+    zoom: 15
   };
  
   render() {
@@ -21,11 +22,13 @@ class Teste extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent
-            lat={41.447111}
-            lng={-8.292756}
-            text="My Marker"
-          />
+          {display_mock.map(display => 
+             <AnyReactComponent
+             lat={display.lat}
+             lng={display.long}
+             text={display.name}
+           />
+          )}
         </GoogleMapReact>
       </div>
     );
