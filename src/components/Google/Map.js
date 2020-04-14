@@ -21,7 +21,7 @@ const Map = () => {
 
     return (
         <GoogleMap
-            defaultZoom={16}
+            defaultZoom={16.5}
             defaultCenter={{ lat: 41.5497472, lng: -8.4286234 }}
         >
             {display_mock.map(park => (
@@ -33,6 +33,10 @@ const Map = () => {
                     }}
                     onClick={() => {
                         setselectedDisplay(park);
+                    }}
+                    icon={{
+                        url: park.icon,
+                        scaledSize: new window.google.maps.Size(25, 25)
                     }}
                 />
             ))}
@@ -59,7 +63,7 @@ const Map = () => {
 
 const MapWrapped = withScriptjs(withGoogleMap(Map));
 
-export default function App() {
+export default function MapView() {
     return (
         <div style={{ height: "100vh" }}>
             <MapWrapped
