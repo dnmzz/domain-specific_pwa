@@ -3,7 +3,6 @@ import Display from '../components/Display/Display';
 import { display_mock } from '../assets/mockData/displays';
 import Backdrops from '../components/Auxiliars/Backdrop';
 import { getDisplaysByContext } from '../services/DisplaysAPI';
-import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -48,7 +47,10 @@ const DisplaysBuilder = () => {
 
     return <div>
         <FormGroup>
-            <Switch onChange={handleChange} name="checked" label="iOS style"/>
+            <FormControlLabel className="switch"
+                control={<Switch onChange={handleChange} name="checked" size="medium"/>}
+                label="MAP VIEW"
+            />
             {state.checked ?
                 <div>
                     {state.displays.length > 0 ?

@@ -22,8 +22,6 @@ import { useHistory } from "react-router-dom";
 import Display from '../components/Display/Display';
 import LandingPage from '../pages/LandingPage';
 import '../hoc/home.css';
-import Teste from '../components/teste';
-import Map from '../components/Google/Map';
 
 class CSSTransition extends OriginalCSSTransition {
     onEntered = () => {
@@ -192,12 +190,6 @@ function Home(props) {
                         <Route exact path="/" component={() => <LandingPage />} />
                     </Switch>
                 </div>
-
-                {/* <div className="">
-                    <Switch location={modal ? props.location : location}>
-                        <Route exact path="/google" component={() => <Map />} />
-                    </Switch>
-                </div> */}
 
                 <TransitionGroup>
                     <CSSTransition
