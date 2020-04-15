@@ -107,11 +107,11 @@ const Display = (props) => {
                     </div>
                 </CardMedia>
                 <div className="title">
-                    <img src="https://www.gstatic.com/angular/material-adaptive/pesto/quick.png" alt="" />
+                    <img src="https://pngimage.net/wp-content/uploads/2018/05/christian-cross-png-6.png" alt="" />
                     <div className="display-cover-content">
                         <CardContent>
                             <div className="display-name">
-                                <Typography variant="h5" component="h2">
+                                <Typography variant="h6" component="h2">
                                     {props.name}
                                 </Typography>
                             </div>

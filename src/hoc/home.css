@@ -11,11 +11,11 @@ body {
     padding-top: 64px;
   }
 
-  .view-container > div > div > div {
+  .view-container > div > div > div > div > div {
     margin-bottom: 1rem;
   }
 
-  .view-container > div > div > div > div {
+  .view-container > div > div > div > div > div > div {
     border-radius: 0.5rem !important;
     box-shadow: 0 4px 30px 0 rgba(0,0,0,0.1);
   }

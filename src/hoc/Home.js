@@ -193,11 +193,11 @@ function Home(props) {
                     </Switch>
                 </div>
 
-                <div className="">
+                {/* <div className="">
                     <Switch location={modal ? props.location : location}>
                         <Route exact path="/google" component={() => <Map />} />
                     </Switch>
-                </div>
+                </div> */}
 
                 <TransitionGroup>
                     <CSSTransition

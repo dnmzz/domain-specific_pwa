@@ -4,6 +4,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { useHistory } from "react-router-dom";
+import GoogleMap from '../Google/Map';
 
 const IOSSwitch = withStyles((theme) => ({
     root: {
@@ -65,10 +66,10 @@ export default function CustomizedSwitches() {
     let history = useHistory();
 
     const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
-        history.push({
-            pathname: '/google'
-        });
+        setState({ ...state, checkedB: true});
+        // history.push({
+        //     pathname: '/google'
+        // });
     };
 
     return (
@@ -77,6 +78,14 @@ export default function CustomizedSwitches() {
                 control={<IOSSwitch checked={state.checkedB} onChange={handleChange} name="checkedB" />}
                 label="Map View"
             />
-        </FormGroup>
-    );
+            {state.checkedB ?
+            <div>
+                <GoogleMap />
+            </div>
+            :
+            <div>
+
+            </div>}
+            </FormGroup>
+        );
 }

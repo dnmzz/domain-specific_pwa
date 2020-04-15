@@ -44,7 +44,7 @@ export const display_mock = [
     location: 'Casa do Igo (Campo das Carvalheiras)',
     lat: 41.5463,
     long: -8.4293,
-    icon: 'https://lh3.googleusercontent.com/proxy/3gKUGRyiV2Y-1q2oqAzrGospNbiHSTH0VSh2chMhoTLDPY6v_wFDviQoAFN_FG8ZdHsFb6pQ5hOw0D3IAyau3aKDoYvRgO5Egn5jcDIQBqxV-k1Yzw4RyDKQiDXSSy3y',
+    icon: 'https://www.stickpng.com/assets/images/58c5801409e8bc1b42c7793d.png',
     mainImageUrl: 'https://aleteiaportuguese.files.wordpress.com/2020/04/web3-sunset-sunrise-cross-jesus-christ-cathopic_148760619968606.jpg?quality=100&strip=all&w=620&h=310&crop=1',
     mainImageTitle: 'Image 3',
     description: 'Abundant in color, and healthy, delicious goodness, cooking with these South American purple potatoes is a treat. Boil, mash, bake, or roast them. For taste cook with chicken stock, and a dash of extra virgin olive oil.',
