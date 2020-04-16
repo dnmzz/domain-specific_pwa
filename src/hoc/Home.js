@@ -6,6 +6,10 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import SettingsIcon from '@material-ui/icons/Settings';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import InfoIcon from '@material-ui/icons/Info';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -57,6 +61,7 @@ const useStyles = makeStyles(theme => ({
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
         width: drawerWidth,
+        backgroundColor: 'white'
     },
     content: {
         flexGrow: 1,
@@ -70,7 +75,6 @@ function Home(props) {
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
     let history = useHistory();
-
 
     const modal = location.state && location.state.to === 'modal';
     let pos = {};
@@ -104,27 +108,48 @@ function Home(props) {
         history.goBack();
     };
 
+    const dealWithDrawerClick = (index) => {
+        switch (index) {
+            case 0:
+                history.push({
+                    pathname: '/settings'
+                });
+
+                break;
+            case 1:
+                history.push({
+                    pathname: '/bookmarks'
+                });
+                break;
+            case 2:
+                history.push({
+                    pathname: '/about_domain'
+                });
+                break;
+            default:
+                history.push({
+                    pathname: '/logout'
+                });
+                break;
+        }
+    };
     const drawer = (
         <div>
             <div className={classes.toolbar} />
             <Divider />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                {['Settings', 'Bookmarks', 'Domain', 'Logout'].map((text, index) => (
+                    <ListItem button key={text} onClick={() => dealWithDrawerClick(index)}>
+                        <ListItemIcon>
+                            {
+                                index === 0 ? <SettingsIcon /> : index === 1 ? <BookmarkIcon /> : index === 2 ? <InfoIcon /> : <ExitToAppIcon />
+                            }
+                        </ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
         </div>
     );
 
@@ -179,18 +204,49 @@ function Home(props) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
-                <div className="view-container">
-                    <Switch location={modal ? props.location : location}>
-                        <Route exact path="/home" component={() => <DisplaysBuilder />} />
-                    </Switch>
-                </div>
-
+                {/* landing page route */}
                 <div className="view-container">
                     <Switch location={modal ? props.location : location}>
                         <Route exact path="/" component={() => <LandingPage />} />
                     </Switch>
                 </div>
 
+                {/* home route */}
+                <div className="view-container">
+                    <Switch location={modal ? props.location : location}>
+                        <Route exact path="/home" component={() => <DisplaysBuilder />} />
+                    </Switch>
+                </div>
+
+                {/* user settings route */}
+                <div className="view-container">
+                    <Switch location={modal ? props.location : location}>
+                        <Route exact path="/settings" component={() => <LandingPage />} />
+                    </Switch>
+                </div>
+
+                {/* bookmarks route */}
+                <div className="view-container">
+                    <Switch location={modal ? props.location : location}>
+                        <Route exact path="/bookmarks" component={() => <LandingPage />} />
+                    </Switch>
+                </div>
+
+                {/* about_domain route */}
+                <div className="view-container">
+                    <Switch location={modal ? props.location : location}>
+                        <Route exact path="/about_domain" component={() => <LandingPage />} />
+                    </Switch>
+                </div>
+
+                {/* logout route */}
+                <div className="view-container">
+                    <Switch location={modal ? props.location : location}>
+                        <Route exact path="/logout" component={() => <LandingPage />} />
+                    </Switch>
+                </div>
+
+                {/* specific display route */}
                 <TransitionGroup>
                     <CSSTransition
                         timeout={450}
