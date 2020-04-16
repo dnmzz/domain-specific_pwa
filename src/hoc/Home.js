@@ -26,6 +26,7 @@ import { useHistory } from "react-router-dom";
 import Display from '../components/Display/Display';
 import LandingPage from '../pages/LandingPage';
 import '../hoc/home.css';
+import Teste from '../components/teste';
 
 class CSSTransition extends OriginalCSSTransition {
     onEntered = () => {
@@ -86,6 +87,7 @@ function Home(props) {
     let mainImageUrl;
     let arr = location.array;
     let posters;
+    let poster_url = location.poster_url;
 
 
     if (modal) {
@@ -245,6 +247,12 @@ function Home(props) {
                         <Route exact path="/logout" component={() => <LandingPage />} />
                     </Switch>
                 </div>
+
+                {/* <div className="view-container">
+                    <Switch location={modal ? props.location : location}>
+                        <Route exact path="/poster" component={() => <Teste url={poster_url}/>} />
+                    </Switch>
+                </div> */}
 
                 {/* specific display route */}
                 <TransitionGroup>

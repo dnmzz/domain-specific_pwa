@@ -8,6 +8,10 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { useHistory } from "react-router-dom";
+import Iframe from 'react-iframe';
+import './poster.css';
+
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -50,6 +54,16 @@ function SwipeableTextMobileStepper(props) {
         setActiveStep(step);
     };
 
+    let history = useHistory();
+
+    const goToPoster = (poster) => {
+        console.log(poster);
+        // history.push({
+        //     pathname: "/poster",
+        //     poster_url: poster.contentUrl
+        // });
+    };
+
     return (
         <div className={classes.root}>
             <Paper square elevation={0} className={classes.header}>
@@ -60,11 +74,21 @@ function SwipeableTextMobileStepper(props) {
                 index={activeStep}
                 onChangeIndex={handleStepChange}
                 enableMouseEvents
+                animateHeight={true}
             >
                 {props.posters.map((poster, index) => (
-                    <div key={poster.name}>
+                    <div key={poster.name} onClick={() => goToPoster(poster)}>
                         {Math.abs(activeStep - index) <= 2 ? (
-                            <img className={classes.img} src={poster.contentUrl} alt={poster.name} />
+                            <Iframe
+                                title="desktop-payment-page"
+                                src={poster.contentUrl}
+                                frameBorder="0"
+                                height="625px"
+                                width="100%"
+                                allow="fullscreen"
+
+                            />
+                            // <img className={classes.img} src={poster.contentUrl} alt={poster.name} />
                         ) : null}
                     </div>
                 ))}
@@ -77,14 +101,14 @@ function SwipeableTextMobileStepper(props) {
                 nextButton={
                     <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
                         Next
-            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
                     </Button>
                 }
                 backButton={
                     <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
                         {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
-          </Button>
+                        Back
+                    </Button>
                 }
             />
         </div>
