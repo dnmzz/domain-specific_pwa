@@ -57,7 +57,6 @@ function SwipeableTextMobileStepper(props) {
     let history = useHistory();
 
     const goToPoster = (poster) => {
-        console.log(poster);
         // history.push({
         //     pathname: "/poster",
         //     poster_url: poster.contentUrl
