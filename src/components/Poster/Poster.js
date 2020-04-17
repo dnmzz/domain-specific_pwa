@@ -72,9 +72,10 @@ function SwipeableTextMobileStepper(props) {
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
                 onChangeIndex={handleStepChange}
-                enableMouseEvents
+                enableMouseEvents={true}
                 animateHeight={true}
-                autoPlay={false}
+                autoplay={false}
+                disableLazyLoading={true}
             >
                 {props.posters.map((poster, index) => (
                     <div key={poster._id} onClick={() => goToPoster(poster)}>
