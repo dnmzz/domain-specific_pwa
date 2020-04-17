@@ -74,18 +74,17 @@ function SwipeableTextMobileStepper(props) {
                 onChangeIndex={handleStepChange}
                 enableMouseEvents
                 animateHeight={true}
+                autoPlay={false}
             >
                 {props.posters.map((poster, index) => (
-                    <div key={poster.name} onClick={() => goToPoster(poster)}>
+                    <div key={poster._id} onClick={() => goToPoster(poster)}>
                         {Math.abs(activeStep - index) <= 2 ? (
-                            <Iframe
-                                title="desktop-payment-page"
+                            <Iframe className="iframe"
                                 src={poster.contentUrl}
                                 frameBorder="0"
-                                height="625px"
+                                height="910px"
                                 width="100%"
                                 allow="fullscreen"
-
                             />
                             // <img className={classes.img} src={poster.contentUrl} alt={poster.name} />
                         ) : null}
