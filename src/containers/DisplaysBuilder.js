@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Display from '../components/Display/Display';
-import { display_mock } from '../assets/mockData/displays';
+// import { display_mock } from '../assets/mockData/displays';
 import Backdrops from '../components/Auxiliars/Backdrop';
 import { getDisplaysByContext } from '../services/DisplaysAPI';
 import FormGroup from '@material-ui/core/FormGroup';

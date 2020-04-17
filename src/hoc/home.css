@@ -14,7 +14,7 @@ body {
   }
 
   .view-container {
-    padding-top: 64px;
+    margin-bottom: 4rem;
   }
 
   .view-container > div > div > div > div > div {
@@ -55,7 +55,7 @@ body {
   }
 
   .modal-container > div {
-    height: 150vh;
+    height: auto;
   }
 
 .MuiCard-root {
@@ -66,10 +66,10 @@ body {
   margin-bottom: 1rem;
 }
 
-.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1{
+.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
   font-family: font !important;
-    font-weight: 100 !important;
-    font-style: normal !important;
-    font-size: 1.2rem !important;
-    color: white !important;
+  font-weight: 100 !important;
+  font-style: normal !important;
+  font-size: 1.2rem !important;
+  color: white !important;
 }

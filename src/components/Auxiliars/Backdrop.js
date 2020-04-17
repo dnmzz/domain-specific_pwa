@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Backdrops = () => {
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
+    const [open] = useState(false);
 
     return (
         <div>
