@@ -66,10 +66,10 @@ body {
   margin-bottom: 1rem;
 }
 
-.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1{
+.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
   font-family: font !important;
-    font-weight: 100 !important;
-    font-style: normal !important;
-    font-size: 1.2rem !important;
-    color: white !important;
+  font-weight: 100 !important;
+  font-style: normal !important;
+  font-size: 1.2rem !important;
+  color: white !important;
 }

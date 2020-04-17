@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+// import Paper from '@material-ui/core/Paper';
+// import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import { useHistory } from "react-router-dom";
 import Iframe from 'react-iframe';
 import './poster.css';
 
@@ -54,20 +53,11 @@ function SwipeableTextMobileStepper(props) {
         setActiveStep(step);
     };
 
-    let history = useHistory();
-
-    const goToPoster = (poster) => {
-        // history.push({
-        //     pathname: "/poster",
-        //     poster_url: poster.contentUrl
-        // });
-    };
-
     return (
         <div className={classes.root}>
-            <Paper square elevation={0} className={classes.header}>
-                <Typography>{props.posters[activeStep].name}</Typography>
-            </Paper>
+            {/* <Paper square elevation={0} className={classes.header}>
+                <Typography className="p">{props.posters[activeStep].name}</Typography>
+            </Paper> */}
             <AutoPlaySwipeableViews
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
@@ -78,7 +68,7 @@ function SwipeableTextMobileStepper(props) {
                 disableLazyLoading={true}
             >
                 {props.posters.map((poster, index) => (
-                    <div key={poster._id} onClick={() => goToPoster(poster)}>
+                    <div key={poster._id}>
                         {Math.abs(activeStep - index) <= 2 ? (
                             <Iframe className="iframe"
                                 src={poster.contentUrl}

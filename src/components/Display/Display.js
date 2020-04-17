@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import Card from '@material-ui/core/Card';
@@ -10,7 +10,6 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useHistory } from "react-router-dom";
 import useBoundingclientrect from "@rooks/use-boundingclientrect"
-import Iframe from 'react-iframe';
 import SwipeableTextMobileStepper from '../Poster/Poster';
 import './display.css';
 
@@ -132,7 +131,7 @@ const Display = (props) => {
                                 <div className="posters">
                                     <div className="posters-title-header">
                                         <Typography variant="h5" component="h2">
-                                            P O S T E R S
+                                            C O N T E N T
                                         </Typography>
                                     </div>
                                     <SwipeableTextMobileStepper posters={props.posters} />

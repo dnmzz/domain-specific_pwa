@@ -2,4 +2,5 @@
     display: block; 
     border: none; 
     overflow: hidden;
+    border-radius: 1rem;
 }
