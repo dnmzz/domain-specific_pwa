@@ -65,6 +65,11 @@
     margin-top: 2rem;
   }
 
+  .posters > div:nth-child(2) {
+    width: auto;
+    max-width: none !important;
+  }
+
   .posters-title-header {
     font-family: 'Sero Pro Thin' !important;
     font-weight: 100;
