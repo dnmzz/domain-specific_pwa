@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from "react-google-maps";
+import { useHistory } from "react-router-dom";
+import useBoundingclientrect from "@rooks/use-boundingclientrect";
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
+import './map.css';
+
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
 
 const Map = (props) => {
     const [selectedDisplay, setselectedDisplay] = useState(null);
     let displays_array = props.displays;
+    const classes = useStyles();
 
     useEffect(() => {
         const listener = e => {
@@ -19,45 +32,77 @@ const Map = (props) => {
         };
     }, []);
 
-    return (
-        <GoogleMap
-            defaultZoom={15.5}
-            defaultCenter={{ lat: 41.5444, lng: -8.4269 }}
-        >
-            {displays_array.map(display => (
-                <Marker
-                    key={display._id}
-                    position={{
-                        lat: display.lat,
-                        lng: display.long
-                    }}
-                    onClick={() => {
-                        setselectedDisplay(display);
-                    }}
-                    icon={{
-                        url: display.icon,
-                        scaledSize: new window.google.maps.Size(25, 25)
-                    }}
-                />
-            ))}
+    const history = useHistory();
+    const refContainer = useRef(null);
+    const getBoundingClientRect = useBoundingclientrect(refContainer);
 
-            {selectedDisplay && (
-                <InfoWindow
-                    onCloseClick={() => {
-                        setselectedDisplay(null);
-                    }}
-                    position={{
-                        lat: selectedDisplay.lat,
-                        lng: selectedDisplay.long
-                    }}
-                >
-                    <div>
-                        <h2>{selectedDisplay.name}</h2>
-                        <p>{selectedDisplay.location}</p>
-                    </div>
-                </InfoWindow>
-            )}
-        </GoogleMap>
+    const navToDisplay = (selectedDisplay) => {
+        const { top, right, bottom, left, width, height } = getBoundingClientRect;
+        history.push({
+            pathname: `/display/${selectedDisplay._id}`,
+            state: {
+                to: 'modal',
+                meta: {
+                    from: { top, right, bottom, left, width, height }
+                },
+                data: {
+                    id: selectedDisplay._id,
+                    name: selectedDisplay.name,
+                    domain: selectedDisplay.domain,
+                    location: selectedDisplay.location,
+                    description: selectedDisplay.description,
+                    mainImageUrl: selectedDisplay.mainImageUrl,
+                    posters: selectedDisplay.posters
+                }
+            },
+        });
+    }
+
+    return (
+        <div ref={refContainer}>
+            <GoogleMap
+                defaultZoom={15.5}
+                defaultCenter={{ lat: 41.5444, lng: -8.4269 }}
+            >
+                {displays_array.map(display => (
+                    <Marker
+                        key={display._id}
+                        position={{
+                            lat: display.lat,
+                            lng: display.long
+                        }}
+                        onClick={() => {
+                            setselectedDisplay(display);
+                        }}
+                        icon={{
+                            url: display.icon,
+                            scaledSize: new window.google.maps.Size(25, 25)
+                        }}
+                    />
+                ))}
+
+                {selectedDisplay && (
+                    <InfoWindow
+                        onCloseClick={() => {
+                            setselectedDisplay(null);
+                        }}
+                        position={{
+                            lat: selectedDisplay.lat,
+                            lng: selectedDisplay.long
+                        }}
+                    >
+                        <div className="infoPopup">
+                            <h2>{selectedDisplay.name}</h2>
+                            <p>{selectedDisplay.location}</p>
+                            <Button onClick={() => navToDisplay(selectedDisplay)} variant="outlined" size="small" color="primary" className={classes.margin}>
+                                    Ir para o display
+                            </Button>
+                            {/* <h3 onClick={() => navToDisplay(selectedDisplay)}>Go to Display</h3> */}
+                        </div>
+                    </InfoWindow>
+                )}
+            </GoogleMap>
+        </div>
     );
 }
 

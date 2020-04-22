@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     media: {
         height: 210,
     },
+    media_normal: {
+        height: 141,
+    },
     actions: {
         icon: {
             width: 30,
@@ -83,28 +86,54 @@ const Display = (props) => {
     return (
         <div ref={refContainer}>
             <Card onClick={() => goToDisplay(props)} className="display">
-                <CardMedia
-                    className={classes.media}
-                    image={props.mainImageUrl}>
-                    <div className="header">
-                        <div className="actions left">
-                            {goBack &&
-                                <ArrowBackIcon onClick={goBack} />
+                {expanded ?
+                    <CardMedia
+                        className={classes.media_normal}
+                        image={props.mainImageUrl}>
+                        <div className="header">
+                            <div className="actions left">
+                                {goBack &&
+                                    <ArrowBackIcon onClick={goBack} />
+                                }
+                            </div>
+                            {showActions &&
+                                <div className="actions right">
+                                    <div className="floating">
+                                        <CardActionArea>
+                                            <div className="like">
+                                                <FavoriteBorderIcon onClick={() => addToBookmarks(props)} style={classes.actions.likeIcon} />
+                                            </div>
+                                        </CardActionArea>
+                                    </div>
+                                </div>
                             }
                         </div>
-                        {showActions &&
-                            <div className="actions right">
-                                <div className="floating">
-                                    <CardActionArea>
-                                        <div className="like">
-                                            <FavoriteBorderIcon onClick={() => addToBookmarks(props)} style={classes.actions.likeIcon} />
-                                        </div>
-                                    </CardActionArea>
-                                </div>
+                    </CardMedia>
+                    :
+
+                    <CardMedia
+                        className={classes.media}
+                        image={props.mainImageUrl}>
+                        <div className="header">
+                            <div className="actions left">
+                                {goBack &&
+                                    <ArrowBackIcon onClick={goBack} />
+                                }
                             </div>
-                        }
-                    </div>
-                </CardMedia>
+                            {showActions &&
+                                <div className="actions right">
+                                    <div className="floating">
+                                        <CardActionArea>
+                                            <div className="like">
+                                                <FavoriteBorderIcon onClick={() => addToBookmarks(props)} style={classes.actions.likeIcon} />
+                                            </div>
+                                        </CardActionArea>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </CardMedia>
+                }
                 <div className="title">
                     <img src="https://pngimage.net/wp-content/uploads/2018/05/christian-cross-png-6.png" alt="" />
                     <div className="display-cover-content">
