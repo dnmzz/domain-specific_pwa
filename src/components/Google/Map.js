@@ -1,12 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import { useHistory } from "react-router-dom";
-import useBoundingclientrect from "@rooks/use-boundingclientrect"
+import useBoundingclientrect from "@rooks/use-boundingclientrect";
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
 import './map.css';
+
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
 
 const Map = (props) => {
     const [selectedDisplay, setselectedDisplay] = useState(null);
     let displays_array = props.displays;
+    const classes = useStyles();
 
     useEffect(() => {
         const listener = e => {
@@ -83,7 +94,10 @@ const Map = (props) => {
                         <div className="infoPopup">
                             <h2>{selectedDisplay.name}</h2>
                             <p>{selectedDisplay.location}</p>
-                            <h3 onClick={() => navToDisplay(selectedDisplay)}>Go to Display</h3>
+                            <Button onClick={() => navToDisplay(selectedDisplay)} variant="outlined" size="small" color="primary" className={classes.margin}>
+                                    Ir para o display
+                            </Button>
+                            {/* <h3 onClick={() => navToDisplay(selectedDisplay)}>Go to Display</h3> */}
                         </div>
                     </InfoWindow>
                 )}

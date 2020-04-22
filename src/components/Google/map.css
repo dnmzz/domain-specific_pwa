@@ -1,3 +1,7 @@
 .infoPopup {
     /* width: 10rem; */
 }
+
+.MuiButton-outlinedPrimary {
+    color: #324B7A;
+}
