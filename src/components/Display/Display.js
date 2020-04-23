@@ -158,11 +158,11 @@ const Display = (props) => {
                             </div>
                             {expanded &&
                                 <div className="posters">
-                                    <div className="posters-title-header">
+                                    {/* <div className="posters-title-header">
                                         <Typography variant="h5" component="h2">
                                             C O N T E N T
                                         </Typography>
-                                    </div>
+                                    </div> */}
                                     <SwipeableTextMobileStepper posters={props.posters} />
                                 </div>
                             }

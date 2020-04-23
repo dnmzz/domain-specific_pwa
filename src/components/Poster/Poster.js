@@ -71,9 +71,9 @@ function SwipeableTextMobileStepper(props) {
                     <div key={poster._id}>
                         {Math.abs(activeStep - index) <= 2 ? (
                             <Iframe className="iframe"
-                                src={poster.contentUrl}
+                                src={poster.contentUrlDisplayMode}
                                 frameBorder="0"
-                                height="910px"
+                                height="600px"
                                 width="100%"
                                 allow="fullscreen"
                             />
