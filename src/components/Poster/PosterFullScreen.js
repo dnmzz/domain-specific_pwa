@@ -16,23 +16,8 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 400,
-        flexGrow: 1,
-    },
-    header: {
-        display: 'flex',
-        alignItems: 'center',
-        height: 50,
-        paddingLeft: theme.spacing(4),
-        backgroundColor: 'none',
-    },
-    img: {
-        height: 255,
-        display: 'block',
-        maxWidth: 400,
-        overflow: 'hidden',
-        width: '100%',
-    },
+        flexGrow: 1
+    }
 }));
 
 function SwipeableTextMobileStepper(props) {
