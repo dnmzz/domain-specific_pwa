@@ -24,6 +24,7 @@ import { useHistory } from "react-router-dom";
 import Display from '../components/Display/Display';
 import LandingPage from '../pages/LandingPage';
 import '../hoc/home.css';
+import PosterFullScreen from '../components/Poster/PosterFullScreen';
 
 class CSSTransition extends OriginalCSSTransition {
     onEntered = () => {
@@ -86,7 +87,7 @@ function Home(props) {
     let posters;
 
 
-    if (modal) {
+    if (modal && !location.state.type) {
         pos = location.state.meta.from;
         id = location.state.data.id;
         name = location.state.data.name;
@@ -95,6 +96,8 @@ function Home(props) {
         description = location.state.data.description
         mainImageUrl = location.state.data.mainImageUrl
         posters = location.state.data.posters
+    } else if (modal && location.state.type) {
+        posters = location.state.posters
     }
 
 
@@ -270,6 +273,24 @@ function Home(props) {
                         </div>
                     </CSSTransition>
                 </TransitionGroup>
+
+                {/* specific poster fullscreen route */}
+                <TransitionGroup>
+                    <CSSTransition
+                        timeout={450}
+                        classNames="modal"
+                        key={location.pathname}
+                        mountOnEnter
+                        appear
+                    >
+                        <div className="modal-container" style={pos}>
+                            <Switch location={location}>
+                                <Route path="/posters/fullscreen" component={() => <PosterFullScreen posters={posters} />}/>
+                            </Switch>
+                        </div>
+                    </CSSTransition>
+                </TransitionGroup>
+
             </main>
         </div>
     );

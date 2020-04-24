@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import Card from '@material-ui/core/Card';
@@ -11,6 +11,9 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useHistory } from "react-router-dom";
 import useBoundingclientrect from "@rooks/use-boundingclientrect"
 import SwipeableTextMobileStepper from '../Poster/Poster';
+import Button from '@material-ui/core/Button';
+import Switch from "react-switch";
+// import Switch from '@material-ui/core/Switch';
 import './display.css';
 
 const useStyles = makeStyles({
@@ -52,6 +55,9 @@ const Display = (props) => {
     let history = useHistory();
     const refContainer = useRef(null);
     const getBoundingClientRect = useBoundingclientrect(refContainer);
+    const [switchState, setSwitchState] = useState({
+        checked: false
+    });
 
     const goToDisplay = (propData) => {
         const { top, right, bottom, left, width, height } = getBoundingClientRect;
@@ -79,8 +85,28 @@ const Display = (props) => {
         }
     };
 
+    const navToPosterFullscreen = (posters) => {
+        const { top, right, bottom, left, width, height } = getBoundingClientRect;
+        history.push({
+            pathname: `/posters/fullscreen`,
+            state: {
+                to: 'modal',
+                meta: {
+                    from: { top, right, bottom, left, width, height }
+                },
+                type: "poster",
+                posters: posters
+            },
+        });
+    }
+
     const addToBookmarks = (propData) => {
         alert(propData.name + ' added to bookmarks!');
+    };
+
+    const handleSwithChange = (event) => {
+        setSwitchState({ ...switchState, checked: !switchState.checked });
+        navToPosterFullscreen(props.posters);
     };
 
     return (
@@ -109,6 +135,7 @@ const Display = (props) => {
                             }
                         </div>
                     </CardMedia>
+
                     :
 
                     <CardMedia
@@ -158,11 +185,22 @@ const Display = (props) => {
                             </div>
                             {expanded &&
                                 <div className="posters">
-                                    {/* <div className="posters-title-header">
-                                        <Typography variant="h5" component="h2">
-                                            C O N T E N T
-                                        </Typography>
-                                    </div> */}
+                                    <div className="posters-title-header">
+                                        {/* <Button onClick={() => navToPosterFullscreen(props.posters)} variant="outlined" size="small" color="primary" className={classes.margin}>
+                                            Fullsceen Mode
+                                        </Button> */}
+                                        <Switch onChange={handleSwithChange} checked={switchState.checked} onColor="#f50057"
+                                            onHandleColor="#f50057"
+                                            handleDiameter={30}
+                                            uncheckedIcon={false}
+                                            checkedIcon={false}
+                                            boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                                            activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                                            height={20}
+                                            width={48}
+                                            className="react-switch"
+                                            id="material-switch" />
+                                    </div>
                                     <SwipeableTextMobileStepper posters={props.posters} />
                                 </div>
                             }

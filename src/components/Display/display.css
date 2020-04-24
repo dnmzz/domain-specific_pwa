@@ -71,11 +71,6 @@
   }
 
   .posters-title-header {
-    font-family: 'Sero Pro Thin' !important;
-    font-weight: 100;
-    font-style: normal;
-    font-size: 5rem;
-    color: #324B7A;
     margin-bottom: 0.5rem;
   }
 
@@ -170,5 +165,9 @@
   .modal-appear-active .display .title,
   .modal-enter-active .display .title {
     margin-top: 25px;
+  }
+
+  .react-switch {
+    margin-right: 17rem;
   }
   
