@@ -62,7 +62,7 @@
   }
 
   .posters {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
   }
 
   .posters > div:nth-child(2) {
@@ -71,7 +71,14 @@
   }
 
   .posters-title-header {
-    margin-bottom: 0.5rem;
+    position: relative !important;
+    top: 2.7rem;
+    color: white;
+    z-index: 1;
+  }
+
+  .posters-title-header > svg {
+    margin-left: 85% !important;
   }
 
 .ingredient {

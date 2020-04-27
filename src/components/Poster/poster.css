@@ -1,6 +1,16 @@
+@import "../../hoc/animations.css";
+
 .iframe {
     display: block; 
     border: none; 
     overflow: hidden;
     border-radius: 1rem;
+}
+
+.backIcon {
+    position: relative !important;
+    left: 9rem;
+    top: 3rem;
+    color: white;
+    z-index: 1;
 }

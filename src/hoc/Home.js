@@ -277,7 +277,7 @@ function Home(props) {
                 {/* specific poster fullscreen route */}
                 <TransitionGroup>
                     <CSSTransition
-                        timeout={450}
+                        timeout={100}
                         classNames="modal"
                         key={location.pathname}
                         mountOnEnter

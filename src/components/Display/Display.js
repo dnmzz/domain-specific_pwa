@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import Card from '@material-ui/core/Card';
@@ -11,8 +11,9 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useHistory } from "react-router-dom";
 import useBoundingclientrect from "@rooks/use-boundingclientrect"
 import SwipeableTextMobileStepper from '../Poster/Poster';
-import Button from '@material-ui/core/Button';
-import Switch from "react-switch";
+// import Button from '@material-ui/core/Button';
+import FullscreenIcon from '@material-ui/icons/Fullscreen';
+// import Switch from "react-switch";
 // import Switch from '@material-ui/core/Switch';
 import './display.css';
 
@@ -55,9 +56,9 @@ const Display = (props) => {
     let history = useHistory();
     const refContainer = useRef(null);
     const getBoundingClientRect = useBoundingclientrect(refContainer);
-    const [switchState, setSwitchState] = useState({
-        checked: false
-    });
+    // const [switchState, setSwitchState] = useState({
+    //     checked: false
+    // });
 
     const goToDisplay = (propData) => {
         const { top, right, bottom, left, width, height } = getBoundingClientRect;
@@ -104,10 +105,10 @@ const Display = (props) => {
         alert(propData.name + ' added to bookmarks!');
     };
 
-    const handleSwithChange = (event) => {
-        setSwitchState({ ...switchState, checked: !switchState.checked });
-        navToPosterFullscreen(props.posters);
-    };
+    // const handleSwithChange = (event) => {
+    //     setSwitchState({ ...switchState, checked: !switchState.checked });
+    //     navToPosterFullscreen(props.posters);
+    // };
 
     return (
         <div ref={refContainer}>
@@ -189,7 +190,7 @@ const Display = (props) => {
                                         {/* <Button onClick={() => navToPosterFullscreen(props.posters)} variant="outlined" size="small" color="primary" className={classes.margin}>
                                             Fullsceen Mode
                                         </Button> */}
-                                        <Switch onChange={handleSwithChange} checked={switchState.checked} onColor="#f50057"
+                                        {/* <Switch onChange={handleSwithChange} checked={switchState.checked} onColor="#f50057"
                                             onHandleColor="#f50057"
                                             handleDiameter={30}
                                             uncheckedIcon={false}
@@ -199,7 +200,8 @@ const Display = (props) => {
                                             height={20}
                                             width={48}
                                             className="react-switch"
-                                            id="material-switch" />
+                                            id="material-switch" /> */}
+                                            <FullscreenIcon onClick={() => navToPosterFullscreen(props.posters)}/>
                                     </div>
                                     <SwipeableTextMobileStepper posters={props.posters} />
                                 </div>
